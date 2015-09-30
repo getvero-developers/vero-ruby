@@ -42,7 +42,7 @@ Or track events
 ```ruby
 Vero::Events.create({
   user_id: 123,
-  event: 'damienb@getvero.com',
+  event: 'purchase item',
   item: {
     name: 'SodaStream',
     sku: 'ss-white-bamboo',
