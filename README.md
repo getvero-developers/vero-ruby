@@ -26,10 +26,10 @@ You need to first set your Auth Token to authorize the requests. You Auth Token 
 Vero.auth_token = ENV['VERO_AUTH_TOKEN']
 ```
 
-Then you can create new customers
+Then you can identify new customers
 
 ```ruby
-Vero::Customers.create({
+Vero::Customers.identify({
   id: 123,
   email: 'damienb@getvero.com',
   first_name: 'damien',
@@ -40,7 +40,7 @@ Vero::Customers.create({
 Or track events
 
 ```ruby
-Vero::Events.create({
+Vero::Events.track({
   user_id: 123,
   event: 'purchase item',
   item: {

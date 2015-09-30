@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'vero/ruby/version'
+require 'vero'
 
 Gem::Specification.new do |spec|
   spec.name          = "vero-ruby"
@@ -19,12 +19,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rest-client"
-  spec.add_dependency "json"
+  spec.add_dependency "nestful", "~> 1.1.1"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "mocha", "~> 0.13.2"
-  spec.add_development_dependency "shoulda", "~> 3.4.0"
-  spec.add_development_dependency "test-unit"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "timecop"
 end
