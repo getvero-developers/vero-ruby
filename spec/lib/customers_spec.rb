@@ -32,4 +32,10 @@ describe Vero::Customers do
 
     Vero::Customers.resubscribe({id: 123})
   end
+
+  it "delete a customer with the Customers API" do
+    stub_request(:delete, "https://:vero_token@api.getvero.com/v2/customers/123")
+
+    Vero::Customers.delete({id: 123})
+  end
 end

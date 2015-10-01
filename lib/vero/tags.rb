@@ -11,9 +11,9 @@ module Vero
       end
     end
 
-    def self.remove(values)
+    def self.delete(values)
       if (id = values.delete(:id)) && (tag = values.delete(:tag))
-        delete(uri(id, :tags, URI.escape(tag)), values)
+        destroy(uri(id, :tags, URI.escape(tag)), values)
       else
         raise ArgumentError, 'Invalid values'
       end

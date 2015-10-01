@@ -72,7 +72,7 @@ module Vero
       )
     end
 
-    def self.delete(action = '', values = {})
+    def self.destroy(action = '', values = {})
       params, options = parse_values(values)
 
       request(
