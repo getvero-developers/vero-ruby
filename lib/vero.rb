@@ -21,8 +21,6 @@ module Vero
   autoload :Resource, 'vero/resource'
   autoload :Base, 'vero/base'
   autoload :Customers, 'vero/customers'
+  autoload :Tags, 'vero/tags'
   autoload :Events, 'vero/events'
-
-  module Errors
-  end
 end

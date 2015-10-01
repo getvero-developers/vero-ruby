@@ -3,11 +3,6 @@ require 'spec_helper'
 describe Vero::Events do
   before do
     Vero.auth_token = 'vero_token'
-    Timecop.freeze(DateTime.now)
-  end
-
-  after do
-    Timecop.return
   end
 
   it "track an event with the Events API" do

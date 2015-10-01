@@ -3,7 +3,7 @@ module Vero
     path "/v2/events"
 
     def self.track(values)
-      post(values)
+      post('', values)
     end
   end
 end

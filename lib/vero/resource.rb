@@ -54,22 +54,31 @@ module Vero
       [params, options]
     end
 
-    def self.get(values = {})
+    def self.get(action = '', values = {})
       params, options = parse_values(values)
 
-      request(url, options.merge(method: :get, params: params))
+      request(
+        uri(action),
+        options.merge(method: :get, params: params)
+      )
     end
 
-    def self.post(values = {})
+    def self.post(action = '', values = {})
       params, options = parse_values(values)
 
-      request(url, options.merge(method: :post, params: params, format: :json))
+      request(
+        uri(action),
+        options.merge(method: :post, params: params, format: :json)
+      )
     end
 
-    def self.delete(values = {})
+    def self.delete(action = '', values = {})
       params, options = parse_values(values)
 
-      request(url, options.merge(method: :delete, params: params))
+      request(
+        uri(action),
+        options.merge(method: :delete, params: params)
+      )
     end
 
     def self.request(uri, options = {})
@@ -80,6 +89,17 @@ module Vero
       ).execute
 
       response
+    end
+
+    def self.uri(*parts)
+      # If an absolute URI already
+      if (uri = parts.first) && uri.is_a?(URI)
+        return uri if uri.host
+      end
+
+      value = Nestful::Helpers.to_path(url, *parts)
+
+      URI.parse(value)
     end
   end
 end
