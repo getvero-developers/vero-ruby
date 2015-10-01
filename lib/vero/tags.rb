@@ -18,5 +18,15 @@ module Vero
         raise ArgumentError, 'Invalid values'
       end
     end
+
+    def self.all(values)
+      path "/v2/customers"
+
+      if id = values.delete(:user_id)
+        get(uri(id, :tags), values)
+      else
+        raise ArgumentError, 'Invalid values'
+      end
+    end
   end
 end

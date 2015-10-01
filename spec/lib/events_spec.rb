@@ -11,4 +11,10 @@ describe Vero::Events do
 
     Vero::Events.track({user_id: 123, event: 'Purchase item', item: { sku: 'it_123' }})
   end
+
+  it "list all events with the Events API" do
+    stub_request(:get, "https://:vero_token@api.getvero.com/v2/customers/123/events")
+
+    Vero::Events.all({user_id: 123})
+  end
 end

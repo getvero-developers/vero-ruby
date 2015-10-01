@@ -38,4 +38,10 @@ describe Vero::Customers do
 
     Vero::Customers.delete({id: 123})
   end
+
+  it "retrieve a customer with the Customers API" do
+    stub_request(:get, "https://:vero_token@api.getvero.com/v2/customers/123")
+
+    Vero::Customers.find({id: 123})
+  end
 end

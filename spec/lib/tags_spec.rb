@@ -17,4 +17,10 @@ describe Vero::Tags do
 
     Vero::Tags.delete({id: 123, tag: 'tag 1'})
   end
+
+  it "list all tags with the Tags API" do
+    stub_request(:get, "https://:vero_token@api.getvero.com/v2/customers/123/tags")
+
+    Vero::Tags.all({user_id: 123})
+  end
 end

@@ -37,5 +37,13 @@ module Vero
         raise ArgumentError, 'Invalid values'
       end
     end
+
+    def self.find(values)
+      if id = values.delete(:id)
+        get(uri(id), values)
+      else
+        raise ArgumentError, 'Invalid values'
+      end
+    end
   end
 end
